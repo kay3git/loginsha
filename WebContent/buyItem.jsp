@@ -76,7 +76,10 @@
 						<span>商品名</span>
 					</td>
 					<td>
+<!-- 					以下の一行書き直し
 						<s:property value="loginUserInfoMap.buyItem_name" />
+	 					以上の一行書き直し -->
+						<s:property value="#session.buyItem_name" />
 					</td>
 				</tr>
 				<tr>
@@ -84,7 +87,10 @@
 						<span>値段</span>
 					</td>
 					<td>
+<!-- 					以下の一行書き直し
 						<s:property value="loginUserInfoMap.buyItem_price" /><span>円</span>
+						以上の一行書き直し -->
+						<s:property value="#session.buyItem_price" /><span>円</span>
 					</td>
 				</tr>
 				<tr>
@@ -118,7 +124,7 @@
 			</table>
 		</s:form>
 			<div>
-				<p>前画面に戻る場合は<a href='<s:url action="GoHomeAction" />'>こちら</a></p>
+				<p>前画面に戻る場合は<a href='<s:url action="HomeAction" />'>こちら</a></p>
 				<p>マイページは<a href='<s:url action="GoHomeAction" />'>こちら</a></p>
 			</div>
 		</div>

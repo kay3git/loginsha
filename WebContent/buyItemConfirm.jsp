@@ -80,19 +80,22 @@
 				<s:form>
 					<tr>
 						<td>商品名</td>
+<!-- 					以下の一行書き直し
 						<td><s:property value="session.buyItem_name" /></td>
-					</tr>
-					<tr>
-						<td>値段</td>
-						<td><s:property value="session.total_price" /><span>円</span></td>
+	 					以上の一行書き直し -->
+						<td><s:property value="#session.buyItem_name" /></td>
 					</tr>
 					<tr>
 						<td>商品個数</td>
-						<td><s:property value="session.count" /><span>個</span></td>
+						<td><s:property value="#session.count" /><span>個</span></td>
+					</tr>
+					<tr>
+						<td>金額</td>
+						<td><s:property value="#session.total_price" /><span>円</span></td>
 					</tr>
 					<tr>
 						<td>支払い方法</td>
-						<td><s:property value="session.pay" /></td>
+						<td><s:property value="#session.pay" /></td>
 					</tr>
 					<tr>
 						<td><br></td>

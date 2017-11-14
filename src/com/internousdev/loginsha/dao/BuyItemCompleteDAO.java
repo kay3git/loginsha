@@ -8,7 +8,6 @@ import com.internousdev.loginsha.util.DBConnector;
 import com.internousdev.loginsha.util.DateUtil;
 
 
-
 public class BuyItemCompleteDAO {
 
 	private DBConnector dbConnector = new DBConnector();
