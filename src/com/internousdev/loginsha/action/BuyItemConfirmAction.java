@@ -22,10 +22,15 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware{
 	public String execute() throws SQLException {
 //購入完了処理用DAOにセッション情報をセット
 		buyItemCompleteDAO.buyItemInfo(
+				//商品ID
 				session.get("id").toString(),
-				session.get("login_user_id").toString(),
-				session.get("buyItem_price").toString(),
+				//購入トータル価格
+				session.get("total_price").toString(),
+				//購入個数
 				session.get("count").toString(),
+				//ユーザID
+				session.get("login_user_id").toString(),
+				//支払い方法
 				session.get("pay").toString());
 
 		String result = SUCCESS;
