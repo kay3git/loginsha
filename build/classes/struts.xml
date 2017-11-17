@@ -11,7 +11,6 @@
 
 		<!-- HomeAction -->
 		<action name="HomeAction" class="com.internousdev.loginsha.action.HomeAction" method="execute">
-<!-- 			<result name="success">login.jsp</result> -->
 			<result name="success">login.jsp</result>
 		</action>
 
@@ -56,10 +55,10 @@
 		</action>
 
 <!-- マイページここから -->
- 		<!-- MyPageAction -->
-<!-- 		<action name="MyPageAction" class="com.internousdev.loginsha.action.MyPageAction" method="execute"> -->
-<!-- 			<result name="success">myPage.jsp</result> -->
-<!-- 		</action> -->
+<!--  		MyPageAction -->
+		<action name="MyPageAction" class="com.internousdev.loginsha.action.MyPageAction" method="execute">
+			<result name="success">myPage.jsp</result>
+		</action>
 <!-- マイページここまで -->
 
 		<!-- LogoutAction -->
