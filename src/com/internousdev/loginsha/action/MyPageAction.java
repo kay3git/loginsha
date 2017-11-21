@@ -17,12 +17,12 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 
 	private MyPageDAO myPageDAO = new MyPageDAO();
 
-	//MyPageDTO型のArrayListであるmyPageListを宣言
+	//MyPageDTO型のArrayListオブジェクトであるmyPageListを宣言
 	public ArrayList<MyPageDTO> myPageList = new ArrayList<MyPageDTO>();
 
 	//削除フラグを宣言
 	private String deleteFlg;
-
+	//削除処理の成功／失敗のメッセージを格納する変数を宣言
 	private String message;
 
 
@@ -39,7 +39,8 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 			//セッションの「商品ID」「ユーザID」をセット
 			String item_transaction_id = session.get("id").toString();
 			String user_master_id = session.get("login_user_id").toString();
-			//
+			//セットされた「商品ID」「ユーザID」を元に「該当ユーザが該当商品を購入した履歴」の全件分を
+			//myPageDAOのメソッドgetMyPageUserInfoを使用し取得しmyPageListに代入
 			myPageList = myPageDAO.getMyPageUserInfo(item_transaction_id,user_master_id);
 			//MyPageDTO型のイテレータオブジェクトiteratorをmyPageListのイテレータとして定義
 			Iterator<MyPageDTO> iterator =myPageList.iterator();
@@ -59,14 +60,21 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 	}
 
 	public void delete() throws SQLException{
+		//変数「item_transaction_id」「user_master_id」にそれぞれ
+		//セッションの「商品ID」「ユーザID」をセット
 		String item_transaction_id = session.get("id").toString();
 		String user_master_id = session.get("login_user_id").toString();
 
+		//セットされた「商品ID」「ユーザID」を元に「該当ユーザが該当商品を購入した履歴」の全件分を
+		//myPageDAOのメソッドbuyItemHistoryDeleteを使用し削除
+		//（削除件数を変数resに代入）
 		int res = myPageDAO.buyItemHistoryDelete(item_transaction_id,user_master_id);
 
+		//削除件数が0より大きければmyPageListにnull代入し削除成功メッセージをmessageにセット
 		if(res>0){
 			myPageList = null;
 			setMessage("商品情報を正しく削除しました。");
+		//削除件数が0なら削除成功メッセージをmessageにセット
 		}else if(res==0){
 			setMessage("商品情報の削除に失敗しました。");
 		}

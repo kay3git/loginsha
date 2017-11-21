@@ -9,6 +9,11 @@
 	<!-- 対象のpackageを設定 -->
 	<package name="com.internousdev.loginsha.action" extends="struts-default">
 
+		<!-- GoHomeAction -->
+		<action name="GoHomeAction" class="com.internousdev.loginsha.action.GoHomeAction" method="execute">
+			<result name="success">home.jsp</result>
+		</action>
+
 		<!-- HomeAction -->
 		<action name="HomeAction" class="com.internousdev.loginsha.action.HomeAction" method="execute">
 			<result name="success">login.jsp</result>
@@ -55,16 +60,16 @@
 		</action>
 
 <!-- マイページここから -->
-<!--  		MyPageAction -->
+		<!-- MyPageAction -->
 		<action name="MyPageAction" class="com.internousdev.loginsha.action.MyPageAction" method="execute">
 			<result name="success">myPage.jsp</result>
 		</action>
 <!-- マイページここまで -->
 
-		<!-- LogoutAction -->
-		<action name="LogoutAction" class="com.internousdev.loginsha.action.LogoutAction" method="execute">
-			<result name="success">home.jsp</result>
-		</action>
+		<!--  LogoutAction -->
+ 		<action name="LogoutAction" class="com.internousdev.loginsha.action.LogoutAction" method="execute">
+ 			<result name="success">login.jsp</result>
+ 		</action>
 
 	</package>
 </struts>

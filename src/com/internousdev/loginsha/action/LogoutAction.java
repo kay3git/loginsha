@@ -18,6 +18,7 @@ public class LogoutAction extends ActionSupport implements SessionAware{
 	 */
 	public String execute(){
 
+		//セッションをクリアしキーがない状態にする
 		session.clear();
 		return SUCCESS;
 	}

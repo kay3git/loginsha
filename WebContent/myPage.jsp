@@ -71,9 +71,12 @@
 				<p>MyPage</p>
 			</div>
 			<div>
+			<!-- 【s:ifタグ】test属性に指定された式を評価し成立した場合の記述が出力対象  -->
+				<!-- ■□ myPageListに値が入っていない場合 □■ -->
 				<s:if test="myPageList == null">
 					<h3>ご購入情報はありません。</h3>
 				</s:if>
+				<!-- ■□ myPageListに値が入っていて削除メッセージがnullの場合 □■  -->
 				<s:elseif test="message == null">
 					<h3>ご購入情報は以下になります。</h3>
 					<table border="1">
@@ -85,7 +88,13 @@
 							<th>購入日</th>
 						</tr>
 						<s:iterator value="myPageList">
+						<!-- 【s:iteratorタグ】value属性に指定されたオブジェクトの個数だけ繰り返しを行う
+							 このタグ内では繰り返し中のオブジェクトのプロパティを参照可能
+							 コレクションの現在の要素を参照するために指定する属性はない
+							 現在の要素は一時オブジェクトスコープにあり、値スタックの最上位に置かれているため
+							 特定のオブジェクト id を指定しない s:property タグでアクセスすることができる	  -->
 							<tr>
+								<!-- 【s:propertyタグ】値の埋め込み：myPageListの現在の要素の各値をセット  -->
 								<td><s:property value="itemName" /></td>
 								<td><s:property value="totalPrice" /><span>円</span></td>
 								<td><s:property value="totalCount" /><span>個</span></td>
@@ -94,12 +103,18 @@
 							</tr>
 						</s:iterator>
 					</table>
+					<!-- 削除ボタン -->
 					<s:form action="MyPageAction">
+						<!-- 値スタックにより変数名「deleteFlg」がMyPageActionと共有される（←たぶん）
+							「削除」ボタンをクリック時、非表示データ「deleteFlg」に値1がセットされ
+							MyPageActionに送られdeleteメソッドが実行される -->
 						<input type="hidden" name="deleteFlg" value="1">
 						<s:submit value="削除" method="delete" />
 					</s:form>
 				</s:elseif>
+				<!-- ■□ 削除メッセージがnullではない場合 □■  -->
 				<s:if test="message != null">
+					<!-- 削除メッセージmessageを画面表示 -->
 					<h3><s:property value="message" /></h3>
 				</s:if>
 				<div id="text-right">
