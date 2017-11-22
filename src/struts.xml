@@ -59,12 +59,10 @@
 			<result name="success">home.jsp</result>
 		</action>
 
-<!-- マイページここから -->
 		<!-- MyPageAction -->
 		<action name="MyPageAction" class="com.internousdev.loginsha.action.MyPageAction" method="execute">
 			<result name="success">myPage.jsp</result>
 		</action>
-<!-- マイページここまで -->
 
 		<!--  LogoutAction -->
  		<action name="LogoutAction" class="com.internousdev.loginsha.action.LogoutAction" method="execute">

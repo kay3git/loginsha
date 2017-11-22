@@ -8,24 +8,16 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemAction extends ActionSupport implements SessionAware {
 
-	/**
-	 * アイテム購入個数
-	 */
+	 //アイテム購入個数
 	private int stock;
 
-	/**
-	 * 支払い方法
-	 */
+	 //支払い方法
 	private String pay;
 
-	/**
-	 * アイテム情報を格納
-	 */
+	//アイテム情報を格納
 	public Map<String, Object>  session;
 
-	/**
-	 * 処理結果
-	 */
+	//処理結果
 	private String result;
 
 	/**

@@ -22,6 +22,12 @@ public class BuyItemDAO {
 	 * @return BuyItemDTO
 	 */
 
+	/*	★★★★ getBuyItemInfoメソッド（商品情報取得）★★★★
+	 * item_info_transactionテーブルから「商品ID」「商品名」「価格」を受け取り
+	 * それらをセットしたbuyItemDTOオブジェクトを戻り値として返す*/
+
+	//引数を受け取らずitem_info_transactionから条件指定せずselectしているので
+	//商品が1件しか登録されていないことが前提（たぶん）
 	public BuyItemDTO getBuyItemInfo(){
 		String sql = "SELECT id, item_name, item_price FROM	item_info_transaction";
 

@@ -61,8 +61,12 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
 			result = SUCCESS;
 
-			// アイテム情報を取得
+			//item_info_transactionテーブルから無条件で検索した結果（1件が前提）を
+			//buyItemDTOに代入
 			BuyItemDTO buyItemDTO = buyItemDAO.getBuyItemInfo();
+			//sessionに以下をセット
+			//*** loginDTOの「ユーザID」
+			//*** buyItemDTOの「商品ID」「商品名」「商品価格」をセット
 			session.put("login_user_id",loginDTO.getLoginId());
 			session.put("id", buyItemDTO.getId());
 			session.put("buyItem_name", buyItemDTO.getItemName());

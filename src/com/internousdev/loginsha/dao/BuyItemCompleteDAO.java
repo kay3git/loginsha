@@ -29,6 +29,11 @@ public class BuyItemCompleteDAO {
 	 * @throws SQLException
 	 */
 
+	/*	★★★★ buyItemInfoメソッド（）★★★★
+	 * 「商品ID」「購入金額」「購入個数」「ユーザID」「支払い方法」を引数として受け取り、
+	 * 引数をuser_buy_item_transactionテーブルの「item_transaction_id」「total_price」「total_count」「user_master_id」、
+	 * dateUtilで現在日時を取得し「insert_date」にセット後、INSERするT*/
+
 	public void buyItemInfo(String item_transaction_id, String total_price, String total_count, String user_master_id, String pay) throws SQLException{
 
 		try{

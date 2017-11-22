@@ -60,6 +60,7 @@
 		}
 
 	</style>
+	<!-- jQueryでsubmitとaction（とURI) -->
 	<script type="text/javascript">
 		function submitAction(url) {
 			$('form').attr('action', url);
@@ -101,9 +102,11 @@
 						<td><br></td>
 					</tr>
 					<tr>
+						<!-- 戻るボタン -->
 						<td>
 							<input type="button" value="戻る" onclick="submitAction('HomeAction')" />
 						</td>
+						<!-- 完了ボタン -->
 						<td>
 							<input type="button" value="完了" onclick="submitAction('BuyItemConfirmAction')" />
 						</td>
