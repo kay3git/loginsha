@@ -56,7 +56,7 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		session.put("loginUser", loginDTO);
 
 		//sessionに格納された、DBから取得した値をセットしたloginDTOオブジェクトを
-		//LoginDTO型にキャストしたものからloginFlgを取り出し、trueなら戻り値にSUCCESSをセット
+		//LoginDTO型にキャストしたものからloginFlgを取り出し、それがtrueなら戻り値にSUCCESSをセット
 		//つまり→「入力値で検索した結果同じ値がDBにあれば」
 		if(((LoginDTO) session.get("loginUser")).getLoginFlg()) {
 			result = SUCCESS;

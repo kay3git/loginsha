@@ -53,6 +53,7 @@ public class LoginDAO {
 					loginDTO.setLoginFlg(true);
 				}
 			}
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}
