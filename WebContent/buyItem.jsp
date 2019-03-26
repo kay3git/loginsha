@@ -70,7 +70,38 @@
 		</div>
 		<div>
 		<s:form action="BuyItemAction">
-			<table>
+			<table border="1">
+				<tr>
+					<th>商品名</th>
+					<th>値段</th>
+					<th>在庫</th>
+					<th>支払い方法</th>
+				</tr>
+				<s:iterator value="buyItemList">
+				<!-- 【s:iteratorタグ】value属性に指定されたオブジェクトの個数だけ繰り返しを行う
+					 このタグ内では繰り返し中のオブジェクトのプロパティを参照可能
+					 コレクションの現在の要素を参照するために指定する属性はない
+					 現在の要素は一時オブジェクトスコープにあり、値スタックの最上位に置かれているため
+					 特定のオブジェクト id を指定しない s:property タグでアクセスすることができる	  -->
+					<tr>
+						<!-- 【s:propertyタグ】値の埋め込み：buyItemListの現在の要素の各値をセット  -->
+						<td><s:property value="itemName" /></td>
+						<td><s:property value="itemPrice" /><span>円</span></td>
+						<td><s:property value="totalCount" /><span>個</span></td>
+						<td>
+							<input type="radio" name="pay" value="1" checked="checked">現金払い
+							<input type="radio" name="pay" value="2">クレジットカード
+						</td>
+					</tr>
+				</s:iterator>
+					<tr>
+						<td>
+							<s:submit value="購入"/>
+						</td>
+					</tr>
+			</table>
+
+<%-- 			<table>
 				<tr>
 					<td>
 						<span>商品名</span>
@@ -121,7 +152,7 @@
 						<s:submit value="購入"/>
 					</td>
 				</tr>
-			</table>
+			</table> --%>
 		</s:form>
 			<div>
 				<p>前画面に戻る場合は<a href='<s:url action="HomeAction" />'>こちら</a></p>
